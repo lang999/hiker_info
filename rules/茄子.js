@@ -88,7 +88,7 @@ const csdown = {
                             }, {
                                 title: '更换线路',
                                 js: $.toString(() => {
-                                    var url = 'https://api1.yilushunfeng.top|http://rfEXkbyp.yilushunfeng.top|http://rfEXkbyp.changfapiaopiao.top|https://api.changfapiaopiao.top|http://api1.yilushunfeng.top|http://api.changfapiaopiao.top|http://api1.apijiekou.top/api|http://api.phpjiekou.top|http://api.22s.lol/api'.split('|');
+                                    var url = 'http://api1.feylen6.top|http://randomapi01.changfapiaopiao.top|http://api018.apijiekou.top/api|http://api018.phpjiekou.top|http://api.22s.lol/api|http://randomapi03.changfapiaopiao.top|http://api1.apijiekou.top/api|http://api.phpjiekou.top'.split('|');
                                     var option = '线路1&线路2&线路3&线路4&线路5&线路6&线路7&线路8&线路9'.split('&')
                                     var Line = {
                                         title: '切换线路',
@@ -375,7 +375,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                const host = 'https://api1.yilushunfeng.top';
+                const host = 'http://randomapi01.changfapiaopiao.top';
                 const shouye = qzDecrypt(request('http://sapi001.22s.lol/encrypt/api.php?path=qiezi/shouye'))
                 const data = qzDecrypt(request('http://sapi001.22s.lol/encrypt/api.php?path=qiezi/zonghe'))
                 const search = fetch('http://sapi001.22s.lol/searchconfig/vipapi/vipconfig.txt')
@@ -396,9 +396,9 @@ const csdown = {
                 toast('数据已更新');
                 log('数据已更新');
                 /*  
-    域名替换匹配表达式https?://(api1?\.)?(changfapiaopiao|yilushunfeng|phpjiekou|apijiekou)\.top(/api)?《 
-线路集合http://rfEXkbyp.yilushunfeng.top|http://rfEXkbyp.changfapiaopiao.top|http://api1.apijiekou.top/api|http://api.phpjiekou.top|http://api.22s.lol/api《 
-失效域名集合https://api.yilushunfeng.top|http://api.yilushunfeng.top|http://api11.phpjiekou.top《 
+    域名替换匹配表达式https?://(api1?\.)?(changfapiaopiao|yilushunfeng|phpjiekou|apijiekou)\.top(/api)?《
+线路集合http://api1.feylen6.top|http://randomapi01.changfapiaopiao.top|http://randomapi03.changfapiaopiao.top|http://api018.apijiekou.top/api|http://api018.phpjiekou.top|http://api.22s.lol/api《
+失效域名集合https://api.yilushunfeng.top|http://api.yilushunfeng.top|http://api11.phpjiekou.top《
 最新接口域名https://api1.yilushunfeng.top《
 */
             }
