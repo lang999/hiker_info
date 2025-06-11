@@ -375,7 +375,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                const host = 'http://randomapi06.changfapiaopiao.top';
+                const host = 'http://c001.22s.mom';
                 const shouye = qzDecrypt(request('http://sapi001d.22s.lol/encrypt/api.php?path=qiezi/shouye'))
                 const data = qzDecrypt(request('http://sapi001d.22s.lol/encrypt/api.php?path=qiezi/zonghe'))
                 const search = fetch('http://sapi001d.22s.lol/searchconfig/vipapi/vipconfig.txt')
