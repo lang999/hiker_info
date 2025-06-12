@@ -89,7 +89,7 @@ const csdown = {
                                 title: '更换线路',
                                 js: $.toString(() => {
                                     var url = 'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api068.apijiekou.top/api|http://sapi001d.22s.lol/api'.split('|');
-                                    var option = '线路1&线路2&线路3&线路4&线路5'.split('&')
+                                    var option = url.map((_, index) => 线路${index + 1}).join("&").split("&");
                                     var Line = {
                                         title: '切换线路',
                                         options: option,
