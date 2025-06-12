@@ -1,7 +1,7 @@
 const csdown = {
     d: [],
     author: '流苏',
-    version: '20250611',
+    version: '20250616',
     rely: (data) => {
         return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
     },
@@ -10,7 +10,7 @@ const csdown = {
         if (getItem('up' + csdown.version, '') == '') {
             confirm({
                 title: '更新内容',
-                content: '版本号：' + csdown.version + '\n1.修复一些bug\n2.增加一些bug\n3.增加长按更新茄子服务器数据\n4.增加长按更换线路(没事别换)\n5.搜索界面增加搜索框\n6.增加av百科\n7.首页增加部分模块\n8.综合部分二级页面修改\n9.看不了的是服务器问题，与我无关\n10.修复瓜太郎二级页面空白问题\n11.临时修复部分模块，更新后自行重生或更换线路9\n12.茄子服务器已修复，自行更换为线路1\n13.修改漫画二级页面\n14.修复猫咪系列模块无法打开的问题\n15.百科增加模块，自行长按更新数据\n16.修复蘑菇视频播放(最好挂代理)\n17.修复搜索中部分模块图片不显示的问题\n18.修复图标及部分线路\n19.待续',
+                content: '版本号：' + csdown.version + '\n1.本程序完全免费\n2.增加一些bug\n3.增加长按更新茄子服务器数据\n4.增加长按更换线路(没事别换)\n5.搜索界面增加搜索框\n6.增加av百科\n7.首页增加部分模块\n8.综合部分二级页面修改\n9.看不了的是服务器问题，与我无关\n10.修复瓜太郎二级页面空白问题\n11.临时修复部分模块，更新后自行重生或更换线路\n12.茄子服务器已修复，自行更换为线路1\n13.修改漫画二级页面\n14.修复猫咪系列模块无法打开的问题\n15.百科增加模块，自行长按更新数据\n16.修复蘑菇视频播放(最好挂代理)\n17.修复搜索中部分模块图片不显示的问题\n18.修复图标及部分线路\n19.待续',
                 confirm: $.toString((version) => {
                     setItem('up' + version, '1')
                 }, csdown.version),
@@ -88,7 +88,7 @@ const csdown = {
                             }, {
                                 title: '更换线路',
                                 js: $.toString(() => {
-                                    var url = http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api068.apijiekou.top/api|http://sapi001d.22s.lol/api'.split('|');
+                                    var url = 'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api068.apijiekou.top/api|http://sapi001d.22s.lol/api'.split('|');
                                     var option = '线路1&线路2&线路3&线路4&线路5'.split('&')
                                     var Line = {
                                         title: '切换线路',
@@ -375,7 +375,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                const host = 'http://c001.22s.mom';
+                const host = 'https://api1.yilushunfeng.top';
                 const shouye = qzDecrypt(request('http://c001.22s.mom/encrypt/api.php?path=qiezi/shouye'))
                 const data = qzDecrypt(request('http://c001.22s.mom/encrypt/api.php?path=qiezi/zonghe'))
                 const search = fetch('http://c001.22s.mom/searchconfig/vipapi/vipconfig.txt')
@@ -396,9 +396,9 @@ const csdown = {
                 toast('数据已更新');
                 log('数据已更新');
                 /*  
-    域名替换匹配表达式https?://(api1?\.)?(changfapiaopiao|yilushunfeng|phpjiekou|apijiekou)\.top(/api)?《
-线路集合http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api018.apijiekou.top/api|http://c001.22s.mom/api《
-失效域名集合https://api.yilushunfeng.top|http://api.yilushunfeng.top|http://api11.phpjiekou.top《
+    域名替换匹配表达式https?://(api1?\.)?(changfapiaopiao|yilushunfeng|phpjiekou|apijiekou)\.top(/api)?《 
+线路集合http://rfEXkbyp.yilushunfeng.top|http://rfEXkbyp.changfapiaopiao.top|http://api1.apijiekou.top/api|http://api.phpjiekou.top|http://api.22s.lol/api《 
+失效域名集合https://api.yilushunfeng.top|http://api.yilushunfeng.top|http://api11.phpjiekou.top《 
 最新接口域名https://api1.yilushunfeng.top《
 */
             }
