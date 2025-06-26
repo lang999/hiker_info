@@ -634,7 +634,7 @@ const csdown = {
                 d.push({
                     col_type: 'blank_block'
                 })
-                var list = JSON.parse(fetch(getMyVar('搜索分类', 'http://c001.22s.mom/searchconfig/video.txt')).replace('yindangmao', 'caoliusp_xilie/yindangmao').replace('erji/missav/missav', 'video1/caoliusp_xilie/zhongkoushe').replace('日本专区', '重口社')).searchapi;
+                var list = JSON.parse(fetch(getMyVar('搜索分类', 'http://api001.22s.mom/searchconfig/video.txt')).replace('yindangmao', 'caoliusp_xilie/yindangmao').replace('erji/missav/missav', 'video1/caoliusp_xilie/zhongkoushe').replace('日本专区', '重口社')).searchapi;
                 var url_n = getItem('host') + '/' + list[0].platform + '.php';
                 putMyVar('url_n', url_n);
                 list.forEach(data => {
