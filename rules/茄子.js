@@ -70,6 +70,9 @@ function getFabu() {
         'http://01.xka3a.top',
         'http://api.xka1.top',
         'http://y001.22s.mom'
+        'http://c001.22s.mom'
+        'http://y001.22s.lol'
+    
     ];
     const path = '/encrypt/api.php?path=yuming/yuming';
     for (let base of basePaths) {
@@ -139,7 +142,7 @@ let search = fetch(dizhi + '/searchconfig/vipapi/vipconfig.txt');
                                     js: $.toString(() => {
                                         var raw = getItem('gonggao');
 var url = (raw && raw.match(/线路集合(.*?)《/)) ? raw.match(/线路集合(.*?)《/)[1].trim().split('|') :
-          'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api018.apijiekou.top/api|http://sapi001.22s.lol/api|http://api1.feylen6.top|http://api.changfapiaopiao.top|http://api1.apijiekou.top/api|http://api1.feylen6.top|http://api.changfapiaopiao.top|http://api1.apijiekou.top/api'.split('|');
+          'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api6688.fltv.top/api|http://sapi001d.22s.lol/api'.split('|');
 
 var option = url.map((_, i) => `线路${i + 1}`);
                                         var Line = {
