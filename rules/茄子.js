@@ -1,7 +1,7 @@
 const csdown = {
     d: [],
     author: '流苏',
-    version: '20250516',
+    version: '20250716',
     rely: (data) => {
         return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
     },
@@ -60,9 +60,9 @@ const csdown = {
                                 title: '更新数据',
                                 js: $.toString(() => {
                                     eval($.require('csdown').rely($.require('csdown').aes));
-                                    let shouye = qzDecrypt(request('http://007.22s.lol/encrypt/api.php?path=qiezi/shouye'));
-                                    let data = qzDecrypt(request('http://007.22s.lol/encrypt/api.php?path=qiezi/zonghe'));
-                                    let search = fetch('http://007.22s.lol/searchconfig/vipapi/vipconfig.txt');
+                                    let shouye = qzDecrypt(request('http://c001.22s.mom/encrypt/api.php?path=qiezi/shouye'));
+                                    let data = qzDecrypt(request('http://c001.22s.mom/encrypt/api.php?path=qiezi/zonghe'));
+                                    let search = fetch('http://c001.22s.mom/searchconfig/vipapi/vipconfig.txt');
                                     // var kuozhan=qzDecrypt(request('http://007.22s.lol/encrypt/api.php?path=qiezi/heikeji'));
                                     // var yuming=qzDecrypt(request('http://01.xka3a.top/encrypt/api.php?path=yuming/yuming'));
                                     //  var gonggao=qzDecrypt(request('http://007.22s.lol/encrypt/api.php?path=qiezi/qz'));
