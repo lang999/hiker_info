@@ -375,7 +375,7 @@ const csdown = {
         try {
             if (MY_PAGE == 1) {
                 if (!getMyVar('host', '')) {
-                    let host_arr = ["https://csv.retkd8vu.top", "https://api.sgx2lmhm.vip", "https://api.zche66xh.vip"];
+                    let host_arr = ["https://www.5hdk34pf15.vip", "https://www.5hdk34pf15.vip", "https://www.5hdk34pf15.vip"];
                     for (let item of host_arr) {
                         let data = JSON.parse(fetch(item + '/front/test', {
                             withStatusCode: true,
