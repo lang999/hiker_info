@@ -109,7 +109,7 @@ const tudou = {
                         col_type: col,
                     })
                 })
-                d.push({
+                d。push({
                     col_type: 'blank_block',
                 });
             })
@@ -118,49 +118,49 @@ const tudou = {
 
         function pageMoveto(page, pages) {
             var longClick = [{
-                title: "首页",
+                title: "首页"，
                 js: $.toString(() => {
-                    putMyVar("page", "1");
+                    putMyVar("page"， "1");
                     refreshPage();
                     return "hiker://empty";
                 }),
-            }, {
+            }， {
                 title: "上页",
-                js: $.toString((page) => {
+                js: $。toString((page) => {
                     if (page > 1) {
-                        putMyVar("page", (parseInt(page) - 1));
+                        putMyVar("page"， (parseInt(page) - 1));
                         refreshPage();
                         return "hiker://empty";
                     }
-                }, page),
-            }, {
+                }， page),
+            }， {
                 title: "当前第" + page + "页",
                 js: "",
-            }, {
+            }， {
                 title: "跳转",
-                js: $.toString(() => {
-                    return $("").input(() => {
-                        putMyVar("page", input);
+                js: $。toString(() => {
+                    return $("")。input(() => {
+                        putMyVar("page"， input);
                         refreshPage();
                     });
-                }),
+                })，
             }];
             if (typeof(pages) != 'undefined') {
                 var extra1 = {
                     title: "尾页" + pages,
-                    js: $.toString((pages) => {
+                    js: $。toString((pages) => {
                         putMyVar("page", pages);
                         refreshPage();
                         return "hiker://empty";
-                    }, pages),
+                    }， pages)，
                 };
-                longClick.push(extra1)
+                longClick。push(extra1)
             }
             return longClick
         } //长按跳页
-    }),
+    })，
     video: () => {
-        let d = tudou.d;
+        let d = tudou。d;
         eval(tudou.rely(tudou.aes))
         let pg = MY_URL.replace('hiker://empty##', '');
         try {
@@ -231,8 +231,8 @@ const tudou = {
             if (getMyVar('a') == '') {
                 //let host = 'https://apip.skolx.cn';
                 let html = fetch('https://ilitqxipof4.icu/h5')
-                let host_ = pdfa(html, 'body&&script').map(c => pdfh(c, 'script&&src'))[0].split('.')[1];
-                let host = `https://apip.${host_}.cn`
+                let host_ = pdfa(html, 'body&&script').map(c => pdfh(c, 'script&&src'))[0].match(/\.(.*)\/h5/);
+                let host = `https://apip.${host_[1]}`;
                 setItem('host', host);
                 let account_url = getItem('host') + '/api/in/autoAccount3';
                 let account_body = 'client_id=&c_code=&p_code=&a_code=&a_ins=';
