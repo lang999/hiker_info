@@ -334,9 +334,9 @@ const mls = {
         }];
 
         if (MY_PAGE == 1) {
-            Cate(视频二级， '视频二级'， d);
+            Cate(视频二级, '视频二级', d);
         }
-        var url = getItem('host') + '/api/video/getStationMore?pageSize=20&page=' + pg + '&sortType=' + getMyVar('视频二级'， '1') + '&stationId=' + id;
+        var url = getItem('host') + '/api/video/getStationMore?pageSize=20&page=' + pg + '&sortType=' + getMyVar('视频二级', '1') + '&stationId=' + id;
         let html2 = post(url);
         try {
             var domain = JSON.parse(html2).domain;
