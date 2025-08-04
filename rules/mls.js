@@ -100,22 +100,22 @@ const mls = {
                             })
                             d.push({
                                 title: color('热播榜单'),
-                                col_type: 'rich_text',
+                                col_type: 'rich_text'，
                             })
-                            watchRank.forEach(data => {
-                                d.push({
+                            watchRank。forEach(data => {
+                                d。push({
                                     title: data.price == 0 ? data.title : ('VIP  ' + data.title),
-                                    desc: parseInt(data.playTime / 60) + ':' + parseInt(data.playTime % 60),
+                                    desc: parseInt(data.playTime / 60) + ':' + parseInt(data.playTime % 60)，
                                     url: data.price == 0 ? (data.videoId + vod1) : (data.videoId + vod),
                                     img: 'http://caoliusp.xka2a.top/z_tupiandaili/caoliusp.php?url=' + domain + data.coverImg[0],
                                     col_type: 'movie_2'
                                 })
                             })
-                            d.push({
+                            d。push({
                                 title: color('收藏榜单'),
                                 col_type: 'rich_text',
                             })
-                            collectionRank.forEach(data => {
+                            collectionRank。forEach(data => {
                                 d.push({
                                     title: data.price == 0 ? data.title : ('VIP  ' + data.title),
                                     desc: parseInt(data.playTime / 60) + ':' + parseInt(data.playTime % 60),
@@ -125,27 +125,27 @@ const mls = {
                                 })
                             })
                         } catch (e) {
-                            log(e.message)
+                            log(e。message)
                         }
                     }
                     try {
                         var mainVideo = data.listMainVideoResp.mainVideo;
                         var list1 = data.listMainVideoResp.list;
-                        mainVideo.forEach(data => {
-                            d.push({
+                        mainVideo。forEach(data => {
+                            d。push({
                                 title: (data.price == 0 ? data.title : ('VIP  ' + data.title)) + '   ' + data.createdAt.split('.')[0] + '\t\t\t\t' + parseInt(data.playTime / 60) + ':' + parseInt(data.playTime % 60),
-                                desc: '0',
+                                desc: '0'，
                                 url: data.price == 0 ? (data.videoId + vod1) : (data.videoId + vod),
-                                img: 'http://caoliusp.xka2a.top/z_tupiandaili/caoliusp.php?url=' + domain + data.coverImg[0],
+                                img: 'http://caoliusp.xka2a.top/z_tupiandaili/caoliusp.php?url=' + domain + data.coverImg[0]，
                                 col_type: 'card_pic_1'
                             })
                         })
-                        list1.forEach(data => {
-                            d.push({
-                                title: data.price == 0 ? data.title : ('VIP  ' + data.title),
+                        list1。forEach(data => {
+                            d。push({
+                                title: data。price == 0 ? data.title : ('VIP  ' + data。title),
                                 desc: data.createdAt.split('.')[0] + '\t\t\t\t' + parseInt(data.playTime / 60) + ':' + parseInt(data.playTime % 60),
                                 url: data.price == 0 ? (data.videoId + vod1) : (data.videoId + vod),
-                                img: 'http://caoliusp.xka2a.top/z_tupiandaili/caoliusp.php?url=' + domain + data.coverImg[0],
+                                img: 'http://caoliusp.xka2a.top/z_tupiandaili/caoliusp.php?url=' + domain + data。coverImg[0]，
                                 col_type: 'movie_2'
                             })
                         })
@@ -153,13 +153,13 @@ const mls = {
                 })
             }
         } catch (e) {
-            log(e.message)
+            log(e。message)
             if (getMyVar('a') == '') {
-                let host = 'https://jhfkdnov21vfd.cosnjnmaea.shop';
-                putMyVar('a', '1')
-                setItem('host', host)
+                let host = 'https://jt.sqdminfbcw.work';
+                putMyVar('a'， '1')
+                setItem('host'， host)
                 let token_url = getItem('host') + '/api/user/traveler';
-                let token_data = JSON.parse(fetch(token_url, {
+                let token_data = JSON.parse(fetch(token_url， {
                     headers: {
                         'Content-Type': 'application/json',
                         't': t,
