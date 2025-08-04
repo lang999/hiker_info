@@ -100,7 +100,7 @@ const mls = {
                             })
                             d.push({
                                 title: color('热播榜单'),
-                                col_type: 'rich_text'，
+                                col_type: 'rich_text',
                             })
                             watchRank。forEach(data => {
                                 d。push({
