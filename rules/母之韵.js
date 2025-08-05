@@ -207,7 +207,7 @@ const csdown = {
         var pg = getParam('page');
         try {
             if (!getMyVar('info', '')) {
-                let url = getItem('host') + '/api/v1/member/info?t=' + t;
+                let url = getItem('host') + '/api/v2/member/info?t=' + t;
                 let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","uid":' + getItem('uid') + ',"token":"' + getItem('token') + '"}';
                 let data = post(url, body);
                 let uid = data.uid + '';
