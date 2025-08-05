@@ -1,7 +1,7 @@
 const hxc = {
     d: [],
     author: '流苏',
-    version: '20250330',
+    version: '20250805',
     rely: (data) => {
         return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
     },
@@ -93,7 +93,7 @@ const hxc = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                var host = 'https://a94p.deyigx.com';
+                var host = 'https://ap896.32plc.com';
                 putMyVar('a', '1')
                 setItem('host', host)
                 refreshPage()
