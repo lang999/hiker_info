@@ -285,7 +285,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                let host = 'https://mzyapi.91u.sh';
+                let host = 'https://mzyapi.diao.it';
                 putMyVar('a', '1')
                 setItem('host', host)
                 // 调用方法生成随机字符串
