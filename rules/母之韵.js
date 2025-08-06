@@ -8,17 +8,17 @@ const csdown = {
     home: () => {
         //地址:https://douyin116.xyz/
         //uid=6299614,6300193,6297046,6297361
-        var vipUid = 6299614
         var d = csdown.d;
+        var vipUid = 6299614;
         if (MY_PAGE == 1) {
-            d.push({   
+            d.push({
                 title: "搜索 ",
                 url: $.toString(() => {
                     putMyVar('keyword', input)
                     return 'hiker://empty?page=fypage@rule=js:$.require("csdown").search()'
                 }),
-                   desc: "请输入搜索关键词",
-                   col_type: "input",
+                desc: "请输入搜索关键词",
+                col_type: "input",
                 extra: {
                     defaultValue: getMyVar('keyword', ''),
                 }
@@ -207,7 +207,7 @@ const csdown = {
         var pg = getParam('page');
         try {
             if (!getMyVar('info', '')) {
-                let url = getItem('host') + '/api/v2/member/info?t=' + t;
+                let url = getItem('host') + '/api/v1/member/info?t=' + t;
                 let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","uid":' + getItem('uid') + ',"token":"' + getItem('token') + '"}';
                 let data = post(url, body);
                 let uid = data.uid + '';
@@ -275,7 +275,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6299321',
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6299614',
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
@@ -285,7 +285,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                let host = 'https://mzyapi.91u.sh';
+                let host = 'https://mzyapi.diao.it';
                 putMyVar('a', '1')
                 setItem('host', host)
                 // 调用方法生成随机字符串
@@ -330,7 +330,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
@@ -358,7 +358,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 0) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
                     col_type: 'pic_2_card',
                     extra: {
                         id: data.id,
@@ -374,15 +374,15 @@ const csdown = {
         eval(csdown.rely(csdown.aes));
         var pg = getParam('page');
         if (MY_PAGE == 1) {
-            d.push({   
+            d.push({
                 title: "搜索 ",
                 url: $.toString(() => {
                     putMyVar('keyword', input)
                     refreshPage(false)
                     return "hiker://empty"
                 }),
-                   desc: "请输入搜索关键词",
-                   col_type: "input",
+                desc: "请输入搜索关键词",
+                col_type: "input",
                 extra: {
                     defaultValue: getMyVar('keyword', ''),
                     pageTitle: '搜索结果'
@@ -398,7 +398,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
