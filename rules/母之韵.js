@@ -7,9 +7,9 @@ const csdown = {
     },
     home: () => {
         //地址:https://douyin116.xyz/
-        //uid=6299614,6300193,6297046,6297361
+        //uid=6300193,14530664
         var d = csdown.d;
-        var vipUid = 6299614;
+        var vipUid = 14530664;
         if (MY_PAGE == 1) {
             d.push({
                 title: "搜索 ",
@@ -275,7 +275,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6299614',
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
@@ -285,7 +285,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                let host = 'https://mzyapi.diao.it';
+                let host = 'https://mzyapi.91u.sh';
                 putMyVar('a', '1')
                 setItem('host', host)
                 // 调用方法生成随机字符串
