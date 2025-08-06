@@ -330,7 +330,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=14530664',
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
@@ -358,7 +358,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 0) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=14530664',
                     col_type: 'pic_2_card',
                     extra: {
                         id: data.id,
@@ -398,7 +398,7 @@ const csdown = {
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=14530664',
                     col_type: 'movie_2',
                     extra: {
                         id: data.id,
