@@ -7,7 +7,7 @@ const csdown = {
     },
     home: () => {
         //地址:https://douyin116.xyz/
-        //uid=6300193,14530664
+        //uid=6300193,14530664,14532233,14532469
         var d = csdown.d;
         var vipUid = 14530664;
         if (MY_PAGE == 1) {
