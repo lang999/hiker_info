@@ -69,9 +69,9 @@ function getFabu() {
     const basePaths = [
         'http://01.xka3a.top',
         'http://api.xka1.top',
-        'http://y001.22s.mom'
-        'http://c001.22s.mom'
-        'http://y001.22s.lol'
+        'http://c002.22s.mom',
+        'http://c001.xka3a.top',
+        'http://y001.xka3a.top'
     
     ];
     const path = '/encrypt/api.php?path=yuming/yuming';
@@ -142,7 +142,7 @@ let search = fetch(dizhi + '/searchconfig/vipapi/vipconfig.txt');
                                     js: $.toString(() => {
                                         var raw = getItem('gonggao');
 var url = (raw && raw.match(/线路集合(.*?)《/)) ? raw.match(/线路集合(.*?)《/)[1].trim().split('|') :
-          'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api6688.fltv.top/api|http://sapi001d.22s.lol/api'.split('|');
+          'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api6688.fltv.top/api|http://sapi001d.22s.lol/api6'.split('|');
 
 var option = url.map((_, i) => `线路${i + 1}`);
                                         var Line = {
@@ -454,9 +454,9 @@ try {
     }
 } catch (e) {
     log('nbym 获取失败，使用默认地址');
-    nbym = 'http://y001.22s.mom';
+    nbym = 'http://c002.22s.mom';
 }
-var dizhi = nbym || fabu || 'http://y001.22s.mom';
+var dizhi = nbym || fabu || 'http://c002.22s.mom';
                 const host = 'http://randomapi06.changfapiaopiao.top';
                 let shouye = qzDecrypt(request(dizhi + '/encrypt/api.php?path=qiezi/shouye'));
                                         
