@@ -1,7 +1,7 @@
 const csdown = {
     d: [],
     author: '流苏',
-    version: '20250820_2',
+    version: '20250825',
     rely: (data) => {
         return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
     },
@@ -21,14 +21,14 @@ const csdown = {
                 })
             }
             if (MY_PAGE == 1) {
-                d.push({   
+                d.push({   
                     title: "搜索 ",
                     url: $.toString(() => {
                         putMyVar('keyword', input)
                         return "hiker://empty?page=fypage&kw=" + input + '@rule=js:$.require("csdown").search()'
                     }),
-                       desc: "请输入搜索关键词",
-                       col_type: "input",
+                       desc: "请输入搜索关键词",
+                       col_type: "input",
                     extra: {
                         defaultValue: getMyVar('keyword', ''),
                     }
@@ -69,10 +69,10 @@ function getFabu() {
     const basePaths = [
         'http://01.xka3a.top',
         'http://api.xka1.top',
-        'http://c002.22s.mom',
-        'http://c001.xka3a.top',
-        'http://y001.xka3a.top'
-    
+        'http://s001.xka3b.top',
+        'http://c001.xka3b.top',
+        'http://y001.xka3b.top',
+        'http://y002.xka3b.top'
     ];
     const path = '/encrypt/api.php?path=yuming/yuming';
     for (let base of basePaths) {
@@ -110,7 +110,7 @@ try {
     log('gonggao 解析失败');
 }
 
-var dizhi = nbym || fabu || 'http://api.xka1.top';
+var dizhi = nbym || fabu || 'http://01.xka3a.top';
 
 let shouye = qzDecrypt(request(dizhi + '/encrypt/api.php?path=qiezi/shouye'));
 let data = qzDecrypt(request(dizhi + '/encrypt/api.php?path=qiezi/zonghe'));
@@ -142,7 +142,7 @@ let search = fetch(dizhi + '/searchconfig/vipapi/vipconfig.txt');
                                     js: $.toString(() => {
                                         var raw = getItem('gonggao');
 var url = (raw && raw.match(/线路集合(.*?)《/)) ? raw.match(/线路集合(.*?)《/)[1].trim().split('|') :
-          'http://randomapi06.changfapiaopiao.top|http://api002.feylen6.top|http://randomapi08.changfapiaopiao.top|http://api6688.fltv.top/api|http://sapi001d.22s.lol/api6'.split('|');
+          'http://randomapi06.changfapiaopiao.top|http://randomstr.changfapiaopiao.top|http://randomapi08.changfapiaopiao.top|http://api6688.fltv.top/api|http://s001.xka3b.top/api6'.split('|');
 
 var option = url.map((_, i) => `线路${i + 1}`);
                                         var Line = {
@@ -454,9 +454,9 @@ try {
     }
 } catch (e) {
     log('nbym 获取失败，使用默认地址');
-    nbym = 'http://c002.22s.mom';
+    nbym = 'http://c001.xka3a.top';
 }
-var dizhi = nbym || fabu || 'http://c002.22s.mom';
+var dizhi = nbym || fabu || 'http://c001.xka3a.top';
                 const host = 'http://randomapi06.changfapiaopiao.top';
                 let shouye = qzDecrypt(request(dizhi + '/encrypt/api.php?path=qiezi/shouye'));
                                         
@@ -679,15 +679,15 @@ var dizhi = nbym || fabu || 'http://c002.22s.mom';
         var pg = getParam('page');
         try {
             if (MY_PAGE == 1) {
-                d.push({   
+                d.push({   
                     title: "搜索 ",
                     url: $.toString(() => {
                         putMyVar('keyword', input)
                         refreshPage(false)
                         return "hiker://empty"
                     }),
-                       desc: "请输入搜索关键词",
-                       col_type: "input",
+                       desc: "请输入搜索关键词",
+                       col_type: "input",
                     extra: {
                         defaultValue: getMyVar('keyword', ''),
                         pageTitle: '搜索结果'
@@ -2263,7 +2263,7 @@ var dizhi = nbym || fabu || 'http://c002.22s.mom';
     𝐜𝐨𝐝𝐞_: getItem('𝐜𝐨𝐝𝐞_', ''),
     𝐜𝐨𝐝𝐞_1: () => {
         var d = csdown.d;
-        d.push({   
+        d.push({   
             title: "确认",
             url: $.toString(() => {
                 putMyVar('mima_', input)
@@ -2277,8 +2277,8 @@ var dizhi = nbym || fabu || 'http://c002.22s.mom';
                 }
                 return 'hiker://empty'
             }),
-               desc: "请输入密码",
-               col_type: "input",
+               desc: "请输入密码",
+               col_type: "input",
             extra: {
                 defaultValue: getMyVar('mima_', ''),
             }
@@ -2726,14 +2726,14 @@ var dizhi = nbym || fabu || 'http://c002.22s.mom';
         var d = csdown.d;
         eval(csdown.rely(csdown.aes));
         if (MY_PAGE == 1) {
-            d.push({   
+            d.push({   
                 title: "搜索 ",
                 url: $.toString(() => {
                     putMyVar('keyword', input)
                     return "hiker://empty?page=fypage&kw=" + input + '@rule=js:$.require("csdown").avbkss()'
                 }),
-                   desc: "请输入搜索关键词",
-                   col_type: "input",
+                   desc: "请输入搜索关键词",
+                   col_type: "input",
                 extra: {
                     defaultValue: getMyVar('keyword', ''),
                 }
@@ -2783,15 +2783,15 @@ var dizhi = nbym || fabu || 'http://c002.22s.mom';
         eval(csdown.rely(csdown.aes));
         var pg = getParam('page');
         if (MY_PAGE == 1) {
-            d.push({   
+            d.push({   
                 title: "搜索 ",
                 url: $.toString(() => {
                     putMyVar('keyword', input)
                     refreshPage(false)
                     return "hiker://empty"
                 }),
-                   desc: "请输入搜索关键词",
-                   col_type: "input",
+                   desc: "请输入搜索关键词",
+                   col_type: "input",
                 extra: {
                     defaultValue: getMyVar('keyword', ''),
                     pageTitle: '搜索结果'
