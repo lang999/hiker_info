@@ -93,7 +93,7 @@ const hxc = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                var host = 'https://ap896.32plc.com';
+                var host = 'https://a5p3.95agri.com';
                 putMyVar('a', '1')
                 setItem('host', host)
                 refreshPage()
