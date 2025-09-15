@@ -113,16 +113,16 @@ const csdown = {
                         }
                     })
                 })
-                d。push({
+                d.push({
                     col_type: 'blank_block',
                 });
             })
             return d;
         }
 
-        function timestampToTime(tm， ts) {
+        function timestampToTime(tm, ts) {
             undefined
-            let date = new Date(tm * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            let date = new Date(tm * 1000); //时间戳为10位需*1000,时间戳为13位的话不需乘1000
             let Y = date.getFullYear() + '-';
             let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
             let D = date.getDate();
@@ -145,7 +145,7 @@ const csdown = {
                 let len = bytes.byteLength;
                 for (let i = 0; i < len; i++) {
                     let binary = data[i] ^ key;
-                    binaryArr。push(String.fromCharCode(binary));
+                    binaryArr.push(String.fromCharCode(binary));
                 }
                 return window0.btoa(binaryArr.join(""));
             }
@@ -160,12 +160,12 @@ const csdown = {
         function Encrypt(plaintext) {
             const key = CryptoJS.enc.Utf8.parse("qrRCjxruBaInnSFv");
             const iv = CryptoJS.enc.Utf8.parse("S58LowsUeDkyX4KT");
-            var encrypted = CryptoJS.AES.encrypt(plaintext， key, {
+            var encrypted = CryptoJS.AES.encrypt(plaintext, key, {
                 iv: iv,
                 mode: CryptoJS.mode.CBC,
-                padding: CryptoJS。pad.Pkcs7
+                padding: CryptoJS.pad.Pkcs7
             });
-            var ciphertext = encrypted.ciphertext。toString(CryptoJS.enc.Base64);
+            var ciphertext = encrypted.ciphertext.toString(CryptoJS.enc.Base64);
             return ciphertext;
         }
 
@@ -173,15 +173,15 @@ const csdown = {
         function Decrypt(word) {
             const key = CryptoJS.enc.Utf8.parse("qrRCjxruBaInnSFv");
             const iv = CryptoJS.enc.Utf8.parse("S58LowsUeDkyX4KT");
-            let encryptedHexStr = CryptoJS.enc.Base64。parse(word);
+            let encryptedHexStr = CryptoJS.enc.Base64.parse(word);
             let decrypt = CryptoJS.AES.decrypt({
                 ciphertext: encryptedHexStr
             }, key, {
                 iv: iv,
-                mode: CryptoJS。mode。CBC，
+                mode: CryptoJS.mode.CBC,
                 padding: CryptoJS.pad.Pkcs7
             });
-            let decryptedStr = decrypt.toString(CryptoJS。enc.Utf8);
+            let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
             return decryptedStr;
         }
 
@@ -189,14 +189,14 @@ const csdown = {
             body = Encrypt(body);
             let html = fetch(url, {
                 headers: {
-                    'api-token': getItem('token')，
-                }，
+                    'api-token': getItem('token'),
+                },
                 body: {
                     data: body
-                }，
-                method: 'POST'，
+                },
+                method: 'POST',
             });
-            let html1 = JSON.parse(html)。data;
+            let html1 = JSON.parse(html).data;
             let html2 = Decrypt(html1);
             return JSON.parse(html2)
         }
@@ -269,11 +269,11 @@ const csdown = {
             }
             let url = getItem('host') + '/api/v2/video/navigation/video';
             let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","page":' + pg + ',"page_size":20,"nid":' + getMyVar('cate', getMyVar('index_cate')) + ',"type":' + getMyVar('视频分类', '2') + '}';
-            let list = post(url， body)。list;
+            let list = post(url, body).list;
             list.forEach(data => {
-                d。push({
+                d.push({
                     title: data.title,
-                    desc: timestampToTime(data。created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
+                    desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
                     url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=' + home.vipUid,
                     col_type: 'movie_2',
@@ -283,11 +283,11 @@ const csdown = {
                 })
             })
         } catch (e) {
-            log(e。message)
+            log(e.message)
             if (getMyVar('a') == '') {
                 let host = 'https://mzyapi.91u.sh';
-                putMyVar('a'， '1')
-                setItem('host'， host)
+                putMyVar('a', '1')
+                setItem('host', host)
                 // 调用方法生成随机字符串
                 let uuid = generateUUID();
                 let token_url = getItem('host') + '/api/v1/member/guest/login';
@@ -296,22 +296,22 @@ const csdown = {
                     headers: {},
                     body: {
                         data: token_body
-                    }，
+                    },
                     method: 'POST',
                 }));
                 let data = JSON.parse(Decrypt(token_data.data));
                 let token = data.token;
                 let uid = data.uid + '';
-                setItem('token'， token);
-                setItem('uid'， uid);
+                setItem('token', token);
+                setItem('uid', uid);
                 refreshPage(false)
                 toast('域名已更新')
             }
         }
-    }，
+    },
     videoerji: () => {
         var d = csdown.d;
-        eval(csdown。rely(csdown.aes));
+        eval(csdown.rely(csdown.aes));
         let id = MY_PARAMS.id;
         let pg = getParam('page');
         try {
@@ -324,8 +324,8 @@ const csdown = {
             }
             let url = getItem('host') + '/api/v2/video/module/video/list';
             let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","page":' + pg + ',"page_size":20,"mid":' + id + ',"type":' + getMyVar('视频二级分类', '1') + ',"uid":' + getItem('uid') + ',"token":"' + getItem('token') + '"}';
-            let list = post(url， body)。list;
-            list。forEach(data => {
+            let list = post(url, body).list;
+            list.forEach(data => {
                 d.push({
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
@@ -353,11 +353,11 @@ const csdown = {
             let url = getItem('host') + '/api/v2/video/short/videos';
             let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","uid":' + getItem('uid') + ',"token":"' + getItem('token') + '"}';
             let list = post(url, body).list;
-            list。forEach(data => {
-                d。push({
-                    title: data.title，
+            list.forEach(data => {
+                d.push({
+                    title: data.title,
                     desc: timestampToTime(data.created_at, 0) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
-                    img: data。horizontal_cover + image,
+                    img: data.horizontal_cover + image,
                     url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6300193',
                     col_type: 'pic_2_card',
                     extra: {
@@ -366,25 +366,25 @@ const csdown = {
                 })
             })
         } catch (e) {
-            log(e。message)
+            log(e.message)
         }
-    }，
+    },
     search: () => {
         var d = csdown.d;
-        eval(csdown。rely(csdown。aes));
+        eval(csdown.rely(csdown.aes));
         var pg = getParam('page');
         if (MY_PAGE == 1) {
             d.push({
                 title: "搜索 ",
                 url: $.toString(() => {
-                    putMyVar('keyword'， input)
+                    putMyVar('keyword', input)
                     refreshPage(false)
                     return "hiker://empty"
-                })，
+                }),
                 desc: "请输入搜索关键词",
-                col_type: "input"，
+                col_type: "input",
                 extra: {
-                    defaultValue: getMyVar('keyword'， '')，
+                    defaultValue: getMyVar('keyword', ''),
                     pageTitle: '搜索结果'
                 }
             })
@@ -393,20 +393,20 @@ const csdown = {
             let url = getItem('host') + '/api/v2/video/search';
             let body = '{"timestamp":' + t + ',"version":"0.1.0","os":"h5","page":' + pg + ',"page_size":20,"keyword":"' + getMyVar('keyword') + '","type":1,"uid":' + getItem('uid') + ',"token":"' + getItem('token') + '"}';
             let list = post(url, body).list;
-            list。forEach(data => {
+            list.forEach(data => {
                 d.push({
                     title: data.title,
                     desc: timestampToTime(data.created_at, 1) + '\t\t\t' + parseInt(data.video_length / 60) + ':' + parseInt(data.video_length % 60),
                     img: data.horizontal_cover + image,
-                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6300193'，
+                    url: getItem('host') + '/api/v2/video/player.m3u8?vid=' + data.id + '&uid=6300193',
                     col_type: 'movie_2',
                     extra: {
-                        id: data。id，
+                        id: data.id,
                     }
                 })
             })
         } catch (e) {
-            log(e。message)
+            log(e.message)
         }
         setResult(d)
     },
