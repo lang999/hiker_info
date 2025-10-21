@@ -457,7 +457,7 @@ const csdown = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                var host = 'https://api3.vzabrvru.xyz';
+                var host = 'https://api1.50abpi.com';
                 putMyVar('a', '1')
                 setItem('host', host)
                 refreshPage()
