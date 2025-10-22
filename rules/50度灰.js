@@ -23,13 +23,13 @@ const csdown = {
     };
     var pg = getParam('page');
     var c1 = [{
-      title: '首页&小视频&社区&微帖&分类',
-      id: '1&2&3&4&5',
-      img: 'tps://ghproxy.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&tps://ghproxy.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/175.png&tps://ghproxy.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&tps://ghproxy.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/48.png&tps://ghproxy.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/109.png'
+      title: '首页&社区&分类',
+      id: '1&3&5',
+      img: 'https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/175.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/48.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/109.png'
     }];
     if (MY_PAGE == 1) {
       eval(csdown.rely(csdown.aes))
-      Cate(c1, 'c1', d, 'icon_5');
+      Cate(c1, 'c1', d, 'icon_3_round_fill');
       d.push({
         col_type: 'line',
       }, {
