@@ -158,6 +158,65 @@ const csdown = {
       let key = CryptoUtil.Data.parseUTF8("f5d965df75336270");
       let iv = CryptoUtil.Data.parseUTF8("97b60394abc2fbe1");
       let textData = CryptoUtil.Data.parseInputStream(input);
+      let encrypted = CryptoUtil.AES.decrypt(textData, key,          var img = [];
+        }
+        title.forEach((title, index) => {
+          d.push({
+            title: (getMyVar(n, index_n) == id[index] ? strong(title, 'FF6699') : title),
+            img: img[index],
+            url: $('#noLoading#').lazyRule((n, title, id) => {
+              putMyVar(n, id);
+              refreshPage(false);
+              return 'hiker://empty';
+            }, n, title, id[index] + ''),
+            col_type: col,
+            extra: {
+              longClick: longclick,
+            }
+          })
+        })
+        d.push({
+          col_type: 'blank_block',
+        });
+      })
+      return d;
+    }
+
+    // 解密函数
+    function Decrypt(word) {
+      const key = CryptoJS.enc.Utf8.parse("7205a6c3883caf95b52db5b534e12ec3");
+      const iv = CryptoJS.enc.Utf8.parse("81d7beac44a86f43");
+      let encryptedHexStr = CryptoJS.enc.Hex.parse(word);
+      let decrypt = CryptoJS.AES.decrypt({
+        ciphertext: encryptedHexStr
+      }, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CFB,
+        padding: CryptoJS.pad.NoPadding // 注意这里应该是CryptoJS.pad.NoPadding
+      });
+      let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+      return decryptedStr;
+    }
+
+    // 加密函数
+    function Encrypt(plaintext) {
+      const key = CryptoJS.enc.Utf8.parse("7205a6c3883caf95b52db5b534e12ec3");
+      const iv = CryptoJS.enc.Utf8.parse("81d7beac44a86f43");
+      var encrypted = CryptoJS.AES.encrypt(plaintext, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CFB,
+        padding: CryptoJS.pad.NoPadding // 注意这里应该是CryptoJS.pad.NoPadding
+      });
+      var ciphertext = encrypted.ciphertext.toString(CryptoJS.enc.Hex);
+      return ciphertext.toUpperCase();
+    }
+
+    //图片解密
+    var image = $('').image(() => {
+      const CryptoUtil = $.require("hiker://assets/crypto-java.js");
+      let key = CryptoUtil.Data.parseUTF8("f5d965df75336270");
+      let iv = CryptoUtil.Data.parseUTF8("97b60394abc2fbe1");
+      let textData = CryptoUtil.Data.parseInputStream(input);
       let encrypted = CryptoUtil.AES.decrypt(textData, key, {
         mode: "AES/CBC/PKCS7Padding",
         iv: iv
