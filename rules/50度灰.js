@@ -158,65 +158,6 @@ const csdown = {
       let key = CryptoUtil.Data.parseUTF8("f5d965df75336270");
       let iv = CryptoUtil.Data.parseUTF8("97b60394abc2fbe1");
       let textData = CryptoUtil.Data.parseInputStream(input);
-      let encrypted = CryptoUtil.AES.decrypt(textData, key,          var img = [];
-        }
-        title.forEach((title, index) => {
-          d.push({
-            title: (getMyVar(n, index_n) == id[index] ? strong(title, 'FF6699') : title),
-            img: img[index],
-            url: $('#noLoading#').lazyRule((n, title, id) => {
-              putMyVar(n, id);
-              refreshPage(false);
-              return 'hiker://empty';
-            }, n, title, id[index] + ''),
-            col_type: col,
-            extra: {
-              longClick: longclick,
-            }
-          })
-        })
-        d.push({
-          col_type: 'blank_block',
-        });
-      })
-      return d;
-    }
-
-    // 解密函数
-    function Decrypt(word) {
-      const key = CryptoJS.enc.Utf8.parse("7205a6c3883caf95b52db5b534e12ec3");
-      const iv = CryptoJS.enc.Utf8.parse("81d7beac44a86f43");
-      let encryptedHexStr = CryptoJS.enc.Hex.parse(word);
-      let decrypt = CryptoJS.AES.decrypt({
-        ciphertext: encryptedHexStr
-      }, key, {
-        iv: iv,
-        mode: CryptoJS.mode.CFB,
-        padding: CryptoJS.pad.NoPadding // 注意这里应该是CryptoJS.pad.NoPadding
-      });
-      let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
-      return decryptedStr;
-    }
-
-    // 加密函数
-    function Encrypt(plaintext) {
-      const key = CryptoJS.enc.Utf8.parse("7205a6c3883caf95b52db5b534e12ec3");
-      const iv = CryptoJS.enc.Utf8.parse("81d7beac44a86f43");
-      var encrypted = CryptoJS.AES.encrypt(plaintext, key, {
-        iv: iv,
-        mode: CryptoJS.mode.CFB,
-        padding: CryptoJS.pad.NoPadding // 注意这里应该是CryptoJS.pad.NoPadding
-      });
-      var ciphertext = encrypted.ciphertext.toString(CryptoJS.enc.Hex);
-      return ciphertext.toUpperCase();
-    }
-
-    //图片解密
-    var image = $('').image(() => {
-      const CryptoUtil = $.require("hiker://assets/crypto-java.js");
-      let key = CryptoUtil.Data.parseUTF8("f5d965df75336270");
-      let iv = CryptoUtil.Data.parseUTF8("97b60394abc2fbe1");
-      let textData = CryptoUtil.Data.parseInputStream(input);
       let encrypted = CryptoUtil.AES.decrypt(textData, key, {
         mode: "AES/CBC/PKCS7Padding",
         iv: iv
@@ -438,12 +379,12 @@ const csdown = {
       if (MY_PAGE == 1) {
         let c2 = [{
           title: '推荐&关注&精品&原创&猎奇&制片厂&SM&人兽&少女&恋物&最新&偷窥&人妖&今日头条',
-          id: '73&222&333&444&555&666&12&13&14&15&16&17&18&19'
+          id: '111&222&333&444&555&666&12&13&14&15&16&17&18&19'
         }];
         Cate(c2, 'c2', d);
         let cate_video = [{
-          title: '精选&合集&每日',
-          id: 'jingxuan&heji&everyday',
+          title: '精选合集&每日精选',
+          id: 'heji&everyday',
         }]
         var cate_video_title = cate_video[0].title.split('&');
         var cate_video_id = cate_video[0].id.split('&');
@@ -456,23 +397,23 @@ const csdown = {
         })
       }
       if ((getMyVar('c2', '111') == 111)) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"page":"' + pg + '","system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/MvList/recommend';
       } else if (getMyVar('c2', '111') == 222) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/MvList/follow';
       } else if (getMyVar('c2', '111') == 333) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/MvList/list_feature';
       } else if (getMyVar('c2', '111') == 444) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/MvList/list_original';
       } else if (getMyVar('c2', '111') == 555) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/element/list_element';
         
       } else if (getMyVar('c2', '111') == 666) {
-        var data0 = '{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"aaCidFG3mAldGW405wx_1743160264138","system_app_type":"","system_build":"","system_build_id":"","page":' + pg + ',"_t":1}';
+        var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
         var url = getItem('host') + '/pwa.php/api/MvList/featuredzpc';
       } else {
         var data0 = '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' + pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
@@ -573,15 +514,15 @@ const csdown = {
               title: '是否开启禁区?',
               content: '此频道可能存在令人不适的内容,是否选择开启?',
               confirm: $.toString(() => {
-                setItem('open', '1')
+                setItem('open', '0')
                 toast('已开启禁区')
                 refreshPage(false)
               }),
               cancel: $.toString(() => { })
             })
           } else {
-            setItem('open', '0')
-            putMyVar('社区', '0')
+            setItem('open', '1')
+            putMyVar('社区', '1')
             toast('已关闭禁区')
             refreshPage(false)
           }
@@ -987,8 +928,8 @@ const csdown = {
     eval(csdown.rely(csdown.aes))
     if (MY_PAGE == 1) {
       let c5 = [{
-        title: '国产&日韩&欧美&经典三级&动漫CG&其他',
-        id: '0&1&2&3&4&5'
+        title: 'SM&少女&窥视&人兽&恋物&肛门&真人coser&泄物&人妖&道具&孕妇&泄露门&猎奇&内涵段子&PUA撩妹&中文剧情&女同',
+        id: '0&1&2&3&4&5&6&7&8&9&10&11&13&14&15&16&17'
       }];
       Cate(c5, 'c5', d);
     }
