@@ -398,7 +398,7 @@ const csdown = {
 				}];
 				Cate(c2, 'c2', d);
 				let cate_video = [{
-					title: '合集&粉丝团&每日精选',
+					title: '合集&粉丝团&每日',
 					id: 'heji&fans&everyday',
 				}]
 				var cate_video_title = cate_video[0].title.split('&');
@@ -408,7 +408,7 @@ const csdown = {
 						title: title,
 						url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").' +
 							cate_video_id[index] + '()',
-						col_type: 'text_2',
+						col_type: 'text_3',
 					})
 				})
 			}
