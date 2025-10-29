@@ -25,7 +25,7 @@ const csdown = {
 		};
 		var pg = getParam('page');
 		var c1 = [{
-			title: '首页&圈子&分类',
+			title: '首页&圈子&黑料&分类',
 			id: '1&2&4',
 			img:  'https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/175.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/48.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/109.png'
 		}];
