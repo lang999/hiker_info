@@ -414,28 +414,28 @@ const csdown = {
 			}
 			if ((getMyVar('c2', '111') == 111)) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/recommend'; //推荐
 			} else if (getMyVar('c2', '111') == 222) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/follow'; //关注
 			} else if (getMyVar('c2', '111') == 333) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/list_feature'; //精品
 			} else if (getMyVar('c2', '111') == 444) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/list_original'; //原创
 			} else if (getMyVar('c2', '111') == 555) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/element/list_element'; //猎奇
 				var html = post(url, data0);
 				var lista = JSON.parse(html).data.list
@@ -465,13 +465,13 @@ const csdown = {
 				})
 			} else if (getMyVar('c2', '111') == 666) {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/featuredzpc'; //制片厂
 			} else {
 				var data0 =
-					'{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
-					pg + '","tabId":"' + getMyVar('c2', '111') + '"}';
+					 '{"system_oauth_type":"pwa","system_oauth_id":"DJ1iNBf5HiuIjSs7_1715823105441","system_oauth_new_id":"","system_version":"6.2.1","system_app_type":"","system_build":"","system_build_id":"","page":"' +
+					pg + '","_ver":"v1","tabId":"' + getMyVar('c2', '111') + '"}' ;
 				var url = getItem('host') + '/pwa.php/api/MvList/featured';
 			}
 			var html = post(url, data0);
