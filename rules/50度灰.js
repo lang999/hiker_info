@@ -842,6 +842,7 @@ const csdown = {
 		}
 		setResult(d)
 	},
+	// 黑料模块	
 	heiliao: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
