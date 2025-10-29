@@ -25,8 +25,8 @@ const csdown = {
 		};
 		var pg = getParam('page');
 		var c1 = [{
-			title: '首页&圈子&黑料&分类',
-			id: '1&2&3&4',
+			title: '首页&圈子&分类',
+			id: '1&2&4',
 			img:  'https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/175.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/48.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/109.png'
 		}];
 		if (MY_PAGE == 1) {
@@ -398,8 +398,8 @@ const csdown = {
 				}];
 				Cate(c2, 'c2', d);
 				let cate_video = [{
-					title: '合集&粉丝团&每日',
-					id: 'heji&fans&everyday',
+					title: '合集&粉丝团',
+					id: 'heji&fans',
 				}]
 				var cate_video_title = cate_video[0].title.split('&');
 				var cate_video_id = cate_video[0].id.split('&');
