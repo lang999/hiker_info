@@ -2,7 +2,7 @@
 const csdown = {
 	d: [],
 	author: '流苏',
-	version: '20251029',
+	version: '2025102901',
 	rely: (data) => {
 		return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
 	},
@@ -25,8 +25,8 @@ const csdown = {
 		};
 		var pg = getParam('page');
 		var c1 = [{
-			title: '首页&圈子&黑料&分类',
-			id: '1&2&4',
+			title: '首页&圈子&分类&黑料',
+			id: '1&2&3&4',
 			img:  'https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/175.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/48.png&https://ghfast.top/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/109.png'
 		}];
 		if (MY_PAGE == 1) {
@@ -47,9 +47,9 @@ const csdown = {
 			} else if (分类 == 2) {
 				csdown.news()
 			} else if (分类 == 3) {
-				csdown.heiliao()
-			} else if (分类 == 4) {
 				csdown.vodlei()
+			} else if (分类 == 4) {
+				csdown.heiliao()
 			}
 		} else {
 			d.push({
@@ -408,7 +408,7 @@ const csdown = {
 						title: title,
 						url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").' +
 							cate_video_id[index] + '()',
-						col_type: 'text_3',
+						col_type: 'text_2',
 					})
 				})
 			}
