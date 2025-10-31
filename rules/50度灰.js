@@ -1,7 +1,7 @@
 const csdown = {
 	d: [],
 	author: '流苏',
-	version: '20251011',
+	version: '20250419',
 	rely: (data) => {
 		return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
 	},
@@ -193,7 +193,7 @@ const csdown = {
 			var html4 = html3.substring(1, html3.length - 1);
 			return html4;
 		}
-
+		//处理黑料post请求数据中\\，容错处理
 		function post0(url, data0) {
 			var t = Math.floor(Date.now() / 1000);
 			var data = Encrypt(data0); //log(data)
@@ -214,23 +214,17 @@ const csdown = {
 			var html5 = html4.substring(1, html4.length - 1);
 			return html5;
 		}
-
+		//替换json数据中html代码的双引号为单引号，容错处理
 		function escape4Html(json) {
-			var temp = json.split(''); // 变成可写的字符数组
+			var temp = json.split('');
 			var n = temp.length;
-
 			for (var i = 0; i < n; i++) {
-				// 匹配到 :"
 				if (temp[i] === ':' && temp[i + 1] === '"') {
-					// 从 i+2 开始找下一个未转义的双引号
 					for (var j = i + 2; j < n; j++) {
 						if (temp[j] === '"' && temp[j - 1] !== '\\') {
-							// 判断这个双引号是不是字符串值的结尾
 							if (temp[j + 1] === ',' || temp[j + 1] === '}') {
-								// 是结尾，结束本次搜索
 								break;
 							}
-							// 不是结尾，把它换成单引号
 							temp[j] = "'";
 						}
 					}
@@ -261,16 +255,15 @@ const csdown = {
 					}
 				})
 				let 搜索 = [{
-					title: '视频&黑料&圈子&微帖',
-					id: 'long&heiliao&news&wei',
+					title: '视频&黑料&帖子',
+					id: 'long&heiliao&tiezi',
 				}]
 				Cate(搜索, '搜索', d)
 			}
 			if ((getMyVar('搜索', 'long') == 'long')) {
 				var data0 =
-					'{"system_version":"6.2.1","system_token":"","system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"R3O2lxhWUaSamr8m3ih_1743502699655","system_app_type":"","system_build":"","system_build_id":"","page":' +
-					pg + ',"size":10,"limit":10,"keyword":"' + getMyVar('keyword') + '","type":"' + getMyVar(
-						'搜索', 'long') + '"}';
+					'{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"sVGcMzkHADQjj8EZt1J_1761009442702","system_app_type":"","system_build":"","system_build_id":"","page":' +
+					pg + ',"p_type":0,"lastId":0,"keyword":"' + getMyVar('keyword') + '"}';
 				var url = getItem('host') + '/pwa.php/api/MvSearch/video';
 				var html = post(url, data0);
 				var list = JSON.parse(html).data.list;
@@ -296,28 +289,24 @@ const csdown = {
 				var url = getItem('host') + '/pwa.php/api/contents/search';
 				var html = post(url, data0);
 				var list = JSON.parse(html).data.list;
-				log(list)
 				list.forEach(data => {
-					var url = data.preview_video;
 					d.push({
 						title: data.title,
-						desc: ((data.created_at) || (data.refresh_at)) + '\t\t\t' + data
-							.duration_str + '\t\t\t' + data.tags,
-						img: data.thumb_cover_str + image,
-						url: url.replace(/\/\/.*play\./, '//long.').replace('&seconds=30', ''),
-						col_type: getMyVar('搜索', 'long') == 'long' ? "movie_1_left_pic" :
-							"movie_3",
-						extraextra: {
-							lineVisible: false
+						img: data.thumb + image,
+						url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").heiliao_detail()',
+						col_type: "movie_1_left_pic",
+						extra: {
+							id: data.id
 						}
 					})
 				})
-			} else if (getMyVar('搜索', 'long') == 'news') {
+			} else if (getMyVar('搜索', 'long') == 'tiezi') {
 				var data0 =
-					'{"system_version":"6.2.1","system_token":"","system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"R3O2lxhWUaSamr8m3ih_1743502699655","system_app_type":"","system_build":"","system_build_id":"","page":' +
-					pg + ',"size":10,"limit":10,"word":"' + getMyVar('keyword') + '"}';
+					'{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"sVGcMzkHADQjj8EZt1J_1761009442702","system_app_type":"","system_build":"","system_build_id":"","page":' +
+					pg + ',"word":"' + getMyVar('keyword') + '","p_type":0}';
 				var url = getItem('host') + '/pwa.php/api/community/search';
-				var html = post(url, data0);
+				var html = post0(url, data0);
+				log(html)
 				var list = JSON.parse(html).data;
 				list.forEach(data => {
 					//图片
@@ -500,62 +489,15 @@ const csdown = {
 			log(e.message)
 			if (getMyVar('a') == '') {
 				var hostArr = ['https://api2.50aapi.com', 'https://api1.ujmfeob.com',
-					'https://api3.umwrqsap.com'
+					'https://api3.umwrqsap.com', 'https://api2.uksavlgj.xyz'
 				];
 				var host = hostArr[Math.floor(Math.random() * hostArr.length)];
 				putMyVar('a', '1')
 				setItem('host', host)
 				refreshPage()
-				toast('域名已更新')
 			}
 		}
 	},
-	// 短视频模块
-	/* 	mini: () => {
-			var d = csdown.d;
-			eval(csdown.rely(csdown.aes))
-			var pg = getParam('page');
-			if (storage0.getItem('small_video') == '') {
-				let small_video_body =
-					'{"system_version":"6.2.1","system_token":"","system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"R3O2lxhWUaSamr8m3ih_1743502699655","system_app_type":"","system_build":"","system_build_id":""}';
-				let small_video_url = getItem('host') + '/pwa.php/api/MvList/smallByTag';
-				let small_video_data = JSON.parse(post(small_video_url, small_video_body)).data.list;
-				storage0.setItem('small_video', small_video_data);
-			}
-			if (MY_PAGE == 1) {
-				let mini_index = storage0.getItem('small_video')[0].value;
-				putMyVar('mini_index', mini_index)
-				storage0.getItem('small_video').forEach(data => {
-					d.push({
-						title: getMyVar('短视频', getMyVar('mini_index')) == data.value + '' ? strong(
-							data.name, 'FF6699') : data.name,
-						url: $('#noLoading#').lazyRule((title, id) => {
-							putMyVar('短视频', id);
-							refreshPage(false);
-							return 'hiker://empty';
-						}, data.name, data.value),
-						col_type: 'scroll_button',
-					})
-				})
-			}
-			var data0 =
-				'{"system_version":"6.2.1","system_token":"","system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"R3O2lxhWUaSamr8m3ih_1743502699655","system_app_type":"","system_build":"","system_build_id":"","page":' +
-				pg + ',"size":10,"limit":10,"tag":"' + getMyVar('短视频', getMyVar('mini_index')) + '"}';
-			var url = getItem('host') + '/pwa.php/api/MvList/smallVideoByTag';
-			var html = post(url, data0);
-			var list = JSON.parse(html).data.list;
-			list.forEach(data => {
-				d.push({
-					title: data.title,
-					desc: data.duration_str + '\t\t\t' + ((data.created_at) || (data.refresh_at)) +
-						'\t\t\t' + data.tags,
-					img: data.thumb_cover_str + image,
-					url: data.preview_video.replace(/\/\/.*play\./, '//long.').replace(
-						'&seconds=10', ''),
-					col_type: "movie_3",
-				})
-			})
-		}, */
 	// 圈子模块
 	news: () => {
 		var d = csdown.d;
@@ -909,7 +851,8 @@ const csdown = {
 		eval(csdown.rely(csdown.aes))
 		let id = MY_PARAMS.id;
 		var data0 =
-			'{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"sVGcMzkHADQjj8EZt1J_1761009442702","system_app_type":"","system_build":"","system_build_id":"","id":"' + id + '"}';
+			'{"system_version":"6.2.1","system_token":null,"system_oauth_new_id":"","system_oauth_type":"pwa","system_oauth_id":"sVGcMzkHADQjj8EZt1J_1761009442702","system_app_type":"","system_build":"","system_build_id":"","id":"' +
+			id + '"}';
 		var url = getItem('host') + '/pwa.php/api/contents/detail_content';
 		var html = escape4Html(post0(url, data0));
 		var detail = JSON.parse(html).data.cur;
@@ -950,8 +893,8 @@ const csdown = {
 		eval(csdown.rely(csdown.aes))
 		if (MY_PAGE == 1) {
 			let c5 = [{
-				title: '国产&日韩&欧美&经典三级&动漫CG&其他',
-				id: '0&1&2&3&4&5'
+				title: 'SM&少女&窥视&人兽&恋物&肛门&真人coser&泄物&人妖&道具&孕妇&泄露门&男同&猎奇&内涵段子&PUA撩妹&中文剧情&女同',
+				id: '0&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17'
 			}];
 			Cate(c5, 'c5', d);
 		}
@@ -968,7 +911,7 @@ const csdown = {
 			d.push({
 				title: data.name,
 				url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").erji3()',
-				col_type: "text_3",
+				col_type: "text_4",
 				extra: {
 					id: data.id,
 				}
