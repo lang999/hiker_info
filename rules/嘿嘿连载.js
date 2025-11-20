@@ -24,9 +24,9 @@ const csdown = {
 
 		var pg = MY_URL.replace('hiker://empty##', '');
 		var c1 = [{
-			title: '推荐&漫画&小说&分类',
+			title: '漫画&影片&小说&分类',
 			id: '1&2&3&4&5',
-			img: 'https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/47.png&https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/70.png&https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/78.png&https://ghproxy.net/https://raw.githubusercontent.com/ls125781003/tubiao/main/more/67.png'
+			img: 'hiker://images/menu_new2&hiker://images/menu_backup2&hiker://images/menu_book2&hiker://images/menu_now2'
 		}];
 		if (MY_PAGE == 1) {
 			eval(csdown.rely(csdown.aes))
@@ -41,9 +41,9 @@ const csdown = {
 		}
 		var 分类 = getMyVar('c1', '1');
 		if (分类 == 1) {
-			csdown.recommend();
-		} else if (分类 == 2) {
 			csdown.manhua()
+		} else if (分类 == 2) {
+			csdown.movie()
 		} else if (分类 == 3) {
 			csdown.novel()
 		} else if (分类 == 4) {
@@ -177,31 +177,34 @@ const csdown = {
 			});
 			let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8).replace(/([A-Za-z0-9]+)-(\d{5})\.ts/g,
 				url.split('index')[0] + '$1-$2.ts');
-
 			writeFile('hiker://files/cache/video0.m3u8', decryptedStr);
 			return getPath('hiker://files/cache/video0.m3u8') + '#' + url;
 		}
 
-		var vod = $('').lazyRule(() => {
+		/*var vod = $('').lazyRule(() => {
 			eval($.require('csdown').rely($.require('csdown').aes));
 			let data0 =
-				'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"6E021A3AF0955814EC5AED84DE914185","sysVer":"10","appId":"1","osType":"2","time":"' +
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"6E021A3AF0955814EC5AED84DE914185","sysVer":"15","appId":"1","osType":"2","time":"' +
 				t +
-				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68","video_id":"' +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48","video_id":"' +
 				input + '"}'
 			var url = getItem('host') + '/comic-video/catalog';
 			var url1 = post(url, data0);
 			let url2 = JSON.parse(url1).chapter_list[0].content;
 			return vodDecrypt(url2)
+		})*/
+		var vod = $('').lazyRule(() => {
+			eval($.require('csdown').rely($.require('csdown').aes));
+			return vodDecrypt(input)
 		})
 		var pics = $('').lazyRule(() => {
 			eval($.require('csdown').rely($.require('csdown').aes));
 			let comic_id = input.split('##')[1];
 			let chapter_id = input.split('##')[0];
 			let data0 = '{"comic_id":"' + comic_id +
-				'","product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"2565C1DF2D4AEC522F4D5738142E41E3","sysVer":"10","appId":"1","osType":"2","time":"' +
+				'","product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"2565C1DF2D4AEC522F4D5738142E41E3","sysVer":"15","appId":"1","osType":"2","time":"' +
 				t + '","packageName":"cn.continue.me","proxyChannel":"luodiye","chapter_id":"' +
-				chapter_id + '","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}'
+				chapter_id + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}'
 			var url = getItem('host') + '/comic/chapter';
 			var url1 = post(url, data0);
 			let url2 = JSON.parse(url1).image_list;
@@ -217,10 +220,10 @@ const csdown = {
 			let book_id = input.split('##')[1];
 			let chapter_id = input.split('##')[0];
 			let data0 =
-				'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"413E732F26BD1F130C5EF9640A2D958C","sysVer":"10","book_id":"' +
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"413E732F26BD1F130C5EF9640A2D958C","sysVer":"15","book_id":"' +
 				book_id + '","appId":"1","osType":"2","time":"' + t +
 				'","packageName":"cn.continue.me","proxyChannel":"luodiye","chapter_id":"' +
-				chapter_id + '","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}'
+				chapter_id + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}'
 			var url = getItem('host') + '/chapter/text';
 			var url1 = post(url, data0);
 			let url2 = JSON.parse(url1).content;
@@ -278,14 +281,15 @@ const csdown = {
 			return longClick
 		} //长按跳页
 	}),
+	/*
 	recommend: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		try {
 			var data0 =
-				'{"product":"1","ver":"5.0.3","appId":"1","osType":"2","marketChannel":"502qudao4","sign":"39FC81E92CC3B662A409C52D77F8501A","sysVer":"15","time":"' +
+				'{"product":"1","ver":"5.0.3","appId":"1","osType":"2","marketChannel":"luodiye","sign":"39FC81E92CC3B662A409C52D77F8501A","sysVer":"15","time":"' +
 				t +
-				'","packageName":"com.gdbb160b1c.haf63c07ae.s48906538b20251119","proxyChannel":"502qudao4","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 				
 			var url = getItem('host') + '/top-recommend/index';
 			var html2 = post(url, data0);
@@ -324,10 +328,10 @@ const csdown = {
 			if (getMyVar('a') == '') {
 				eval(csdown.rely(csdown.aes))
 				let data0 =
-					'{"product":"1","ver":"5.0.0","appId":"1","osType":"2","marketChannel":"luodiye","sign":"33FC1F988DEFBF3D0903C794F130B0EB","sysVer":"10","time":"' +
+					'{"product":"1","ver":"5.0.3","appId":"1","osType":"2","marketChannel":"luodiye","sign":"33FC1F988DEFBF3D0903C794F130B0EB","sysVer":"15","time":"' +
 					t +
-					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}'
-				let url = 'https://rrs0a03.ec8gsk.com/service/csdown-domain';
+					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}'
+				let url = 'https://rrs0a03.ec8gsk.com/service/hhlz-domain';
 				let html = post(url, data0);
 				let domin_list = JSON.parse(html).api_domins;
 				for (var item of domin_list) {
@@ -346,25 +350,27 @@ const csdown = {
 			}
 		}
 	},
+	*/
 	manhua: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		var pg = MY_URL.replace('hiker://empty##', '');
 		try {
 			var data0 =
-				'{"rankLimit":"30","product":"1","ver":"5.0.0","marketChannel":"luodiye","comic_channel_id":"9","sign":"8C9CBE2713439DAA8C02A43F692DF286","sysVer":"10","appId":"1","osType":"2","recommend_id":"62,30,12,29,24,50","limit":"4","time":"1742091262","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' +
-				pg + '","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'{"rankLimit":"30","product":"1","ver":"5.0.3","marketChannel":"luodiye","comic_channel_id":"9","sign":"C40D4C1B588989AB50A4D66A2D7D7826","sysVer":"15","appId":"1","osType":"2","recommend_id":"66,68,67,69,70","limit":"4","time":"' +
+				t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' +
+				pg + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			var url = getItem('host') + '/comic-channel-list/label-new';
 			var html2 = post(url, data0);
-			//log(html2)
 			var label = JSON.parse(html2).label;
 			label.forEach(data => {
 				d.push({
 					title: color(data.label),
 					img: 'hiker://images/icon_right5',
 					url: $('hiker://empty?page=fypage').rule(() => {
-							$.require("csdown").manhuamore()
-						}),
+						$.require("csdown").manhua_more()
+					}),
 					col_type: 'text_icon',
 					extra: {
 						id: data.recommend_id,
@@ -377,7 +383,7 @@ const csdown = {
 						title: data.name,
 						desc: data.finish_info,
 						img: data.vertical_cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhuaerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhua_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.comic_id,
@@ -387,9 +393,32 @@ const csdown = {
 			})
 		} catch (e) {
 			log(e.message)
+			if (getMyVar('a') == '') {
+				eval(csdown.rely(csdown.aes))
+				let data0 =
+					'{"product":"1","ver":"5.0.3","appId":"1","osType":"2","marketChannel":"luodiye","sign":"E3BCBDD35604893D5254195DD53808C9","sysVer":"15","time":"' +
+					t +
+					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}'
+				let url = 'https://rrs0a13.b5xb5t6.com/service/hhlz-domain';
+				let html = post(url, data0);
+				let domin_list = JSON.parse(html).api_domins;
+				for (var item of domin_list) {
+					var data = JSON.parse(fetch(item + '/domain/check', {
+						withStatusCode: true,
+						timeout: 5000,
+					}));
+					if (data.statusCode == 200) {
+						setItem('host', item);
+						refreshPage(false);
+						toast('域名更新为：' + item);
+						putMyVar('a', '1')
+						break;
+					}
+				}
+			}
 		}
 	},
-	manhuaerji: () => {
+	manhua_erji: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		try {
@@ -397,9 +426,9 @@ const csdown = {
 			var id = MY_PARAMS.id;
 			if (MY_PAGE == 1) {
 				var data0 = '{"comic_id":"' + id +
-					'","product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"3A4371CA3D397775E9422B764FACFFE8","sysVer":"10","appId":"1","osType":"2","time":"' +
+					'","product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"7DA5774423B7192410D92765DBA1DF8B","sysVer":"15","appId":"1","osType":"2","time":"' +
 					t +
-					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 				var url = getItem('host') + '/cartoon/info';
 				var html2 = post(url, data0);
 				var comic = JSON.parse(html2).comic;
@@ -413,9 +442,10 @@ const csdown = {
 				//var label=JSON.parse(html2).label;
 			}
 			let cate_body = '{"comic_id":"' + id +
-				'","product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"911ED4AB904C19147EEF020270A8F41B","sysVer":"10","appId":"1","osType":"2","time":"' +
-				t + '","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' + pg +
-				'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'","product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"F650A385B83FA3AF137C1A2498E05E70","sysVer":"15","appId":"1","osType":"2","time":"' +
+				t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' +
+				pg + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			let cate_url = getItem('host') + '/comic/catalog';
 			let cate_data = post(cate_url, cate_body);
 			let chapter_list = JSON.parse(cate_data).chapter_list;
@@ -425,7 +455,7 @@ const csdown = {
 					img: data.small_cover + lazy,
 					desc: data.updated_at,
 					url: data.chapter_id + '##' + id + pics,
-					col_type: 'movie_1_left_pic',
+					col_type: 'icon_1_left_pic',
 				})
 			})
 		} catch (e) {
@@ -433,7 +463,7 @@ const csdown = {
 		}
 		setResult(d)
 	},
-	manhuamore: () => {
+	manhua_more: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		try {
@@ -441,9 +471,9 @@ const csdown = {
 			var id = MY_PARAMS.id;
 			var url = MY_PARAMS.url;
 			var data0 =
-				'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"54083C34747185362B022828286517F3","page_num":"' +
-				pg + '","sysVer":"10","appId":"1","osType":"2","recommend_id":"' + id + '","time":"' + t +
-				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"54083C34747185362B022828286517F3","page_num":"' +
+				pg + '","sysVer":"15","appId":"1","osType":"2","recommend_id":"' + id + '","time":"' + t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			var html2 = post(url, data0);
 			var list = JSON.parse(html2).list.list;
 			list.forEach(data => {
@@ -452,11 +482,128 @@ const csdown = {
 					desc: data.author + '\n' + data.finished + '\n' + data.description,
 					img: data.horizontal_cover + lazy,
 					url: $('hiker://empty?page=fypage&#immersiveTheme#').rule(() => {
-							$.require("csdown").manhuaerji()
-						}),
-					col_type: "movie_1_left_pic",
+						$.require("csdown").manhua_erji()
+					}),
+					col_type: "movie_3",
 					extra: {
 						id: data.comic_id,
+					},
+				})
+			})
+		} catch (e) {
+			log(e.message)
+		}
+		setResult(d)
+	},
+	movie: () => {
+		var d = csdown.d;
+		eval(csdown.rely(csdown.aes))
+		var pg = MY_URL.replace('hiker://empty##', '');
+		d.push({
+			title: "‘‘’’<strong><font color=#FF6699>暂时不能播放</font></strong>",
+			col_type: 'text_center_1',
+		})
+		try {
+			var data0 =
+				'{"rankLimit":"30","product":"1","ver":"5.0.3","marketChannel":"luodiye","comic_channel_id":"9","sign":"65145E62EFD6CA1182AA8859C233E8A0","sysVer":"15","appId":"1","osType":"2","recommend_id":"29,19,56,55,57","limit":"4","time":"1763606037","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' +
+				pg + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
+			var url = getItem('host') + '/video-channel-list/label-new';
+			var html2 = post(url, data0);
+			var label = JSON.parse(html2).label;
+			label.forEach(data => {
+				d.push({
+					title: color(data.label),
+					img: 'hiker://images/icon_right5',
+					url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").movie_more()',
+					col_type: 'text_icon',
+					extra: {
+						id: data.recommend_id,
+						url: getItem('host') + '/comic-video/recommend',
+					},
+				})
+				var list = data.list;
+				list.forEach(data => {
+					d.push({
+						title: data.title,
+						desc: data.categoryName,
+						img: data.cover + lazy,
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").movie_erji()',
+						col_type: "movie_3",
+						extra: {
+							id: data.video_id,
+						},
+					})
+				})
+			})
+		} catch (e) {
+			log(e.message)
+		}
+	},
+	movie_erji: () => {
+		var d = csdown.d;
+		eval(csdown.rely(csdown.aes))
+		try {
+			var pg = getParam('page');
+			var id = MY_PARAMS.id;
+			if (MY_PAGE == 1) {
+				var data0 =
+					'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"4224451F4D2FB7E052FA9575E197EE80","sysVer":"15","appId":"1","osType":"2","time":"' +
+					t +
+					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48","video_id":"' +
+					id + '"}';
+				var url = getItem('host') + '/video/info';
+				var html2 = post(url, data0);
+				var video = JSON.parse(html2).video;
+				d.push({
+					title: video.name,
+					img: video.cover + lazy,
+					url: video.cover + lazy,
+					col_type: 'movie_1_vertical_pic_blur',
+				})
+				//var label=JSON.parse(html2).label;
+			}
+			let cate_body =
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"32721D4205988BC4E248819C56E1D86A","orderby":"1","sysVer":"15","appId":"1","osType":"2","time":"' +
+				t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48","video_id":"' +
+				id + '"}';
+			let cate_url = getItem('host') + '/comic-video/catalog';
+			let cate_data = post(cate_url, cate_body);
+			let movie_list = JSON.parse(cate_data).chapter_list;
+			movie_list.forEach(data => {
+				d.push({
+					title: "第" + data.chapter_title + "集",
+					desc: data.updated_at_format,
+					url: data.content + vod,
+					col_type: 'text_3',
+				})
+			})
+		} catch (e) {
+			log(e.message)
+		}
+		setResult(d)
+	},
+	movie_more: () => {
+		var d = csdown.d;
+		eval(csdown.rely(csdown.aes))
+		try {
+			var pg = getParam('page');
+			var id = MY_PARAMS.id;
+			var url = MY_PARAMS.url;
+			var data0 =
+				'{"product":"1","ver":"5.0.3","recommend_flag":"0","marketChannel":"luodiye","sign":"F7218C30C822D49CB66F48EBEE793846","page_num":"' +
+				pg + '","sysVer":"15","appId":"1","osType":"2","recommend_id":"' + id + '","time":"' + t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
+			var html2 = post(url, data0);
+			var list = JSON.parse(html2).list.list;
+			list.forEach(data => {
+				d.push({
+					title: data.name,
+					img: data.cover + lazy,
+					url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").movie_erji()',
+					col_type: "movie_3",
+					extra: {
+						id: data.video_id,
 					},
 				})
 			})
@@ -471,8 +618,8 @@ const csdown = {
 		var pg = MY_URL.replace('hiker://empty##', '');
 		try {
 			var data0 =
-				'{"rankLimit":"30","product":"1","ver":"5.0.0","marketChannel":"luodiye","comic_channel_id":"9","sign":"8C9CBE2713439DAA8C02A43F692DF286","sysVer":"10","appId":"1","osType":"2","recommend_id":"62,30,12,29,24,50","limit":"4","time":"1742091262","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' +
-				pg + '","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'{"rankLimit":"30","product":"1","ver":"5.0.3","marketChannel":"502qudao4","sign":"3816D0C8BD380C164E59EC4012F7DE14","sysVer":"15","book_channel_id":"9","appId":"1","osType":"2","recommend_id":"64,65,66","limit":"4","time":"1763614499","packageName":"com.gdbb160b1c.haf63c07ae.s48906538b20251119","proxyChannel":"502qudao4","page":"' +
+				pg + '","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			var url = getItem('host') + '/book-channel-list/label-new';
 			var html2 = post(url, data0);
 			//log(html2)
@@ -481,7 +628,7 @@ const csdown = {
 				d.push({
 					title: color(data.label),
 					img: 'hiker://images/icon_right5',
-					url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").novelmore()',
+					url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").novel_more()',
 					col_type: 'text_icon',
 					extra: {
 						id: data.recommend_id,
@@ -492,9 +639,9 @@ const csdown = {
 				list.forEach(data => {
 					d.push({
 						title: data.name,
-						desc: data.total_words + '  ' + data.tag[1].tab,
+						desc: data.description,
 						img: data.cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novelerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novel_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.book_id,
@@ -506,7 +653,7 @@ const csdown = {
 			log(e.message)
 		}
 	},
-	novelerji: () => {
+	novel_erji: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		try {
@@ -514,9 +661,9 @@ const csdown = {
 			var id = MY_PARAMS.id;
 			if (MY_PAGE == 1) {
 				var data0 =
-					'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"5D6F92350609C579708DAD21F99E3B9B","sysVer":"10","book_id":"' +
+					'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"5D6F92350609C579708DAD21F99E3B9B","sysVer":"15","book_id":"' +
 					id + '","appId":"1","osType":"2","time":"' + t +
-					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+					'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 				var url = getItem('host') + '/novel/info';
 				var html2 = post(url, data0);
 				var book = JSON.parse(html2).book;
@@ -530,10 +677,10 @@ const csdown = {
 				//var label=JSON.parse(html2).label;
 			}
 			let cate_body =
-				'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"8FE32545FCA442A25952383E39BD5C4F","orderby":"1","sysVer":"10","book_id":"' +
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"8FE32545FCA442A25952383E39BD5C4F","orderby":"1","sysVer":"15","book_id":"' +
 				id + '","appId":"1","osType":"2","time":"' + t +
 				'","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' + pg +
-				'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			let cate_url = getItem('host') + '/chapter/catalog';
 			let cate_data = post(cate_url, cate_body);
 			let chapter_list = JSON.parse(cate_data).chapter_list;
@@ -547,11 +694,11 @@ const csdown = {
 						let book_id = MY_PARAMS.book_id;
 						let chapter_id = MY_PARAMS.chapter_id;
 						let data0 =
-							'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"413E732F26BD1F130C5EF9640A2D958C","sysVer":"10","book_id":"' +
+							'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"413E732F26BD1F130C5EF9640A2D958C","sysVer":"15","book_id":"' +
 							book_id + '","appId":"1","osType":"2","time":"' + t +
 							'","packageName":"cn.continue.me","proxyChannel":"luodiye","chapter_id":"' +
 							chapter_id +
-							'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}'
+							'","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}'
 						var url = getItem('host') + '/chapter/text';
 						var url1 = post(url, data0);
 						let text = JSON.parse(url1).content;
@@ -573,7 +720,7 @@ const csdown = {
 		}
 		setResult(d)
 	},
-	novelmore: () => {
+	novel_more: () => {
 		var d = csdown.d;
 		eval(csdown.rely(csdown.aes))
 		try {
@@ -581,9 +728,9 @@ const csdown = {
 			var id = MY_PARAMS.id;
 			var url = MY_PARAMS.url;
 			var data0 =
-				'{"product":"1","ver":"5.0.0","marketChannel":"luodiye","sign":"54083C34747185362B022828286517F3","page_num":"' +
-				pg + '","sysVer":"10","appId":"1","osType":"2","recommend_id":"' + id + '","time":"' + t +
-				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'{"product":"1","ver":"5.0.3","marketChannel":"luodiye","sign":"54083C34747185362B022828286517F3","page_num":"' +
+				pg + '","sysVer":"15","appId":"1","osType":"2","recommend_id":"' + id + '","time":"' + t +
+				'","packageName":"cn.continue.me","proxyChannel":"luodiye","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			var html2 = post(url, data0);
 			var list = JSON.parse(html2).list.list;
 			list.forEach(data => {
@@ -591,7 +738,7 @@ const csdown = {
 					title: data.name,
 					desc: data.total_words,
 					img: data.cover + lazy,
-					url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novelerji()',
+					url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novel_erji()',
 					col_type: "movie_3",
 					extra: {
 						id: data.book_id,
@@ -642,13 +789,13 @@ const csdown = {
 					Cate(finished, 'finished', d);
 					Cate(recommend_flag, 'recommend_flag', d);
 				}
-				var data0 = '{"product":"1","ver":"5.0.0","recommend_flag":"' + getMyVar('recommend_flag',
+				var data0 = '{"product":"1","ver":"5.0.3","recommend_flag":"' + getMyVar('recommend_flag',
 						'3') +
-					'","marketChannel":"luodiye","sign":"C2EA530C24AA69E45510ACB2B68CD67B","page_num":"1","sysVer":"10","finished":"' +
+					'","marketChannel":"luodiye","sign":"C2EA530C24AA69E45510ACB2B68CD67B","page_num":"1","sysVer":"15","finished":"' +
 					getMyVar('finished', '') + '","pay_status":"' + getMyVar('pay_status', '0') +
 					'","appId":"1","cat":"' + getMyVar('cat1', '') + '","osType":"2","order_by":"0","time":"' +
 					t + '","packageName":"cn.continue.me","proxyChannel":"luodiye","page_num":"' + pg +
-					'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+					'","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 				var url = getItem('host') + '/comic/list';
 				var html2 = post(url, data0);
 				var list = JSON.parse(html2).list.list;
@@ -657,7 +804,7 @@ const csdown = {
 						title: data.name,
 						desc: data.finished + data.flag,
 						img: data.vertical_cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhuaerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhua_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.comic_id,
@@ -671,13 +818,13 @@ const csdown = {
 					Cate(finished, 'finished', d);
 					Cate(recommend_flag, 'recommend_flag', d);
 				}
-				var data0 = '{"product":"1","ver":"5.0.0","recommend_flag":"' + getMyVar('recommend_flag',
+				var data0 = '{"product":"1","ver":"5.0.3","recommend_flag":"' + getMyVar('recommend_flag',
 						'3') +
-					'","marketChannel":"luodiye","sign":"C2EA530C24AA69E45510ACB2B68CD67B","page_num":"1","sysVer":"10","finished":"' +
+					'","marketChannel":"luodiye","sign":"C2EA530C24AA69E45510ACB2B68CD67B","page_num":"1","sysVer":"15","finished":"' +
 					getMyVar('finished', '') + '","pay_status":"' + getMyVar('pay_status', '0') +
 					'","appId":"1","cat":"' + getMyVar('cat2', '') + '","osType":"2","order_by":"0","time":"' +
 					t + '","packageName":"cn.continue.me","proxyChannel":"luodiye","page_num":"' + pg +
-					'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+					'","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 				var url = getItem('host') + '/book/category-index';
 				var html2 = post(url, data0);
 				var list = JSON.parse(html2).list.list;
@@ -686,7 +833,7 @@ const csdown = {
 						title: data.name,
 						desc: data.finished,
 						img: data.cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novelerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novel_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.book_id,
@@ -727,7 +874,7 @@ const csdown = {
 			if (getMyVar('搜索', '1') == 1) {
 				var data0 =
 					'{"product":"1","ver":"","marketChannel":"yingyongbao","sign":"4C0E57AE19EDBFB0BEBC4EB2D252BC93","page_num":"' +
-					pg + '","sysVer":"10","appId":"1","osType":"2","time":"' + t +
+					pg + '","sysVer":"15","appId":"1","osType":"2","time":"' + t +
 					'","packageName":"cn.continue.me","proxyChannel":"yingyongbao","udid":"","keyword":"' +
 					getMyVar('keyword') + '"}';
 				var url = getItem('host') + '/comic/search';
@@ -738,7 +885,7 @@ const csdown = {
 						title: data.name,
 						desc: data.finished + data.flag,
 						img: data.vertical_cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhuaerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").manhua_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.comic_id,
@@ -748,7 +895,7 @@ const csdown = {
 			} else {
 				var data0 =
 					'{"product":"1","ver":"","marketChannel":"yingyongbao","sign":"4C0E57AE19EDBFB0BEBC4EB2D252BC93","page_num":"' +
-					pg + '","sysVer":"10","appId":"1","osType":"2","time":"' + t +
+					pg + '","sysVer":"15","appId":"1","osType":"2","time":"' + t +
 					'","packageName":"cn.continue.me","proxyChannel":"yingyongbao","udid":"","keyword":"' +
 					getMyVar('keyword') + '"}';
 				var url = getItem('host') + '/book/search';
@@ -759,7 +906,7 @@ const csdown = {
 						title: data.name,
 						desc: data.total_words + '  ' + data.tag[1].tab,
 						img: data.cover + lazy,
-						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novelerji()',
+						url: 'hiker://empty?page=fypage&#immersiveTheme#@rule=js:$.require("csdown").novel_erji()',
 						col_type: "movie_3",
 						extra: {
 							id: data.book_id,
@@ -778,9 +925,9 @@ const csdown = {
 		var pg = MY_URL.replace('hiker://empty##', '');
 		try {
 			var data0 =
-				'{"rankLimit":"30","product":"1","ver":"5.0.0","video_channel_id":"15","marketChannel":"luodiye","sign":"3EBD11F9527939E53C70C5AE9C89445F","sysVer":"10","appId":"1","osType":"2","recommend_id":"29,19,56,54,55,35","limit":"4","time":"' +
+				'{"rankLimit":"30","product":"1","ver":"5.0.3","video_channel_id":"15","marketChannel":"luodiye","sign":"3EBD11F9527939E53C70C5AE9C89445F","sysVer":"15","appId":"1","osType":"2","recommend_id":"29,19,56,54,55,35","limit":"4","time":"' +
 				t + '","packageName":"cn.continue.me","proxyChannel":"luodiye","page":"' + pg +
-				'","udid":"be4b3c9c-dcca-4544-8385-a9edbb060e68"}';
+				'","udid":"90deb1c0-8994-4076-a14c-86c9ba0bac48"}';
 			var url = getItem('host') + '/video-channel-list/label-new';
 			var html2 = post(url, data0);
 			//log(html2)
@@ -789,7 +936,7 @@ const csdown = {
 				d.push({
 					title: color(data.label),
 					img: 'hiker://images/icon_right5',
-					url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").videomore()',
+					url: 'hiker://empty?page=fypage@rule=js:$.require("csdown").video_more()',
 					col_type: 'text_icon',
 					extra: {
 						id: data.recommend_id,
