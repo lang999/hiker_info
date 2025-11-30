@@ -873,7 +873,7 @@ const csdown = {
             log(e.message);
             if (getMyVar('a') == '') {
                 //let host_arr = JSON.parse(fetch('https://d3vymh21nygiy.cloudfront.net/bghl.json'));
-                let host_arr = ['https://dm.e0albx1.work', 'https://v4mycsc.fi05ait.work'];
+                let host_arr = ['https://bghl1010.nhp7j9atj.xyz'];
                 for (let item of host_arr) {
                     let live = JSON.parse(fetch(item + '/api/sys/live', {
                         onlyHeaders: true,
