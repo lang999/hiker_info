@@ -93,7 +93,7 @@ const hxc = {
         } catch (e) {
             log(e.message)
             if (getMyVar('a') == '') {
-                var host = 'https://a5p3.95agri.com';
+                var host = 'https://ap638.daoshaort.com';
                 putMyVar('a', '1')
                 setItem('host', host)
                 refreshPage()
@@ -214,10 +214,16 @@ const hxc = {
             let data0 = '{"videoId":' + input + '}';
             var url = getItem('host') + '/videos/getPreUrl';
             var url1 = post(url, data0);
-            var url2 = url1.data.url;
-            if (url2) {
-                return url2.replace(/start.*?&sign/, 'sign')
+     if (url1.data.url) {
+            var url2 = url1.data.url;       
+            var muhost = url2.match(/(https?:\/\/[^\/]+(?:\/[^\/]+){3}\/\d+\/)|(https:\/\/(?:[^\/?#]+\/){4})/)[0];         
+            var msign = url2.match(/sign.+/)[0];      
+            var playhtml = fetch(url2);     
+if (playhtml) {   
+            var murl = muhost + playhtml.match(/(1|2)000kb\/.+/)[0]; 
+                return murl.replace(/start.*?&sign/, 'sign')
             }
+          }
             return 'toast://未获取到链接'
         })
     }),
