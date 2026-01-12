@@ -69,10 +69,10 @@ function getFabu() {
     const basePaths = [
         'http://01.xka3a.top',
         'http://api.xka1.top',
-        'http://s001.xka3b.top',
-        'http://c001.xka3b.top',
-        'http://y001.xka3b.top',
-        'http://y002.xka3b.top'
+        'http://s001.feylen6.top',
+        'http://cq001.feylen6.top',
+        'http://y001.feylen6.top',
+        'http://y002.feylen6.top'
     ];
     const path = '/encrypt/api.php?path=yuming/yuming';
     for (let base of basePaths) {
@@ -456,7 +456,7 @@ try {
     log('nbym 获取失败，使用默认地址');
     nbym = 'http://s001.xka3a.top';
 }
-var dizhi = nbym || fabu || 'http://s001.xka3a.top';
+var dizhi = nbym || fabu || 'http://s001.feylen6.top';
                 const host = 'http://randomapi06.sexladyya.top';
                 let shouye = qzDecrypt(request(dizhi + '/encrypt/api.php?path=qiezi/shouye'));
                                         
