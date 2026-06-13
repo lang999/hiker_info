@@ -1,6 +1,6 @@
 const csdown = {
 	d: [],
-	author: '流明',
+	author: '流',
 	version: '20260611_fixed',
 	rely: (data) => {
 		return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
