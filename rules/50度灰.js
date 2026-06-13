@@ -3,8 +3,9 @@ const csdown = {
     author: '流苏',
     version: '202606191',
 	rely: (data) => {
-		return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1')
-	},
+    // 在返回的代码块末尾手动添加一个分号
+    return data.match(/\{([\s\S]*)\}/)[0].replace(/\{([\s\S]*)\}/, '$1') + ';';
+},
 	home: () => {
 		var d = csdown.d;
 		if (MY_PAGE == 1) {
